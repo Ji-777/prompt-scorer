@@ -1,13 +1,18 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { evaluatePromptWithModel } from '../../../lib/evaluatePromptWithModel'
+// apps/web/app/api/evaluate/route.ts
 
-export async function POST(req: NextRequest) {
+import { NextResponse } from "next/server";
+import { evaluatePromptWithModel } from "@/lib/evaluatePromptWithModel";
+
+export async function POST(req: Request) {
   try {
-    const { prompt } = await req.json()
-    const result = await evaluatePromptWithModel(prompt)
-    return NextResponse.json(result)
+    const { prompt, model = "openai" } = await req.json();
+
+    // ✅ 传入两个参数
+    const result = await evaluatePromptWithModel(prompt, model);
+
+    return NextResponse.json(result);
   } catch (error: any) {
-    console.error('评分失败:', error)
-    return NextResponse.json({ error: error.message }, { status: 500 })
+    console.error("评分失败:", error);
+    return NextResponse.json({ error: "评分失败" }, { status: 500 });
   }
 }
