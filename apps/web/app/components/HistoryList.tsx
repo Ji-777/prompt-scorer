@@ -2,20 +2,48 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { getAllRecords, updateFeedback, ScoreRecord } from '../utils/db'
+
+// ✅ 临时代替类型
+type ScoreRecord = {
+  id: string
+  prompt: string
+  score: number
+  suggestions: string[]
+  feedback?: string
+  timestamp: string
+}
 
 export default function HistoryList() {
   const [records, setRecords] = useState<ScoreRecord[]>([])
-  const [editingId, setEditingId] = useState<string | null>(null) // ✅ 当前正在编辑的记录 ID
-  const [feedbackText, setFeedbackText] = useState('') // ✅ 输入框内容
+  const [editingId, setEditingId] = useState<string | null>(null)
+  const [feedbackText, setFeedbackText] = useState('')
 
   useEffect(() => {
-    getAllRecords().then(setRecords)
+    // ✅ 模拟假数据
+    const fakeData: ScoreRecord[] = [
+      {
+        id: '1',
+        prompt: 'Explain quantum computing in simple terms.',
+        score: 8,
+        suggestions: ['Add a real-world analogy', 'Avoid jargon'],
+        timestamp: new Date().toISOString(),
+      },
+      {
+        id: '2',
+        prompt: 'Write a haiku about the moon.',
+        score: 10,
+        suggestions: ['Perfect as is!'],
+        feedback: 'Loved the poetic tone.',
+        timestamp: new Date().toISOString(),
+      },
+    ]
+    setRecords(fakeData)
   }, [])
 
   const handleSubmitFeedback = async (id: string) => {
-    await updateFeedback(id, feedbackText)
-    const updated = await getAllRecords()
+    const updated = records.map((r) =>
+      r.id === id ? { ...r, feedback: feedbackText } : r
+    )
     setRecords(updated)
     setEditingId(null)
     setFeedbackText('')
