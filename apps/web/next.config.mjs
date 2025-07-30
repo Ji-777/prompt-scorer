@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: {
-      bodySizeLimit: "10mb",
-    },
-  },
-};
+  reactStrictMode: true,
+  swcMinify: true,
+}
 
-export default nextConfig;
+export default nextConfig

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "seo-intro",
+    "category": "Marketing",
+    "title": "写一段 SEO 优化的产品介绍",
+    "prompt": "Write an SEO-friendly product introduction for our new AI-powered content generator."
+  },
+  {
+    "id": "twitter-thread",
+    "category": "Social Media",
+    "title": "生成一个 Twitter 线程的开头",
+    "prompt": "Start a compelling Twitter thread about productivity hacks using AI tools."
+  },
+  {
+    "id": "job-posting",
+    "category": "Recruiting",
+    "title": "写一个岗位招聘描述",
+    "prompt": "Create a job post for a remote senior frontend engineer specializing in React and Tailwind."
+  },
+  {
+    "id": "email-followup",
+    "category": "Email",
+    "title": "撰写商务跟进邮件",
+    "prompt": "Write a polite follow-up email after a product demo with a potential client."
+  },
+  {
+    "id": "summarize-article",
+    "category": "Content",
+    "title": "总结文章三要点",
+    "prompt": "Summarize the following article in three key bullet points."
+  },
+  {
+    "id": "bug-report",
+    "category": "Engineering",
+    "title": "撰写清晰的 Bug 报告",
+    "prompt": "Write a clear bug report for a login failure on mobile devices."
+  },
+  {
+    "id": "policy-brief",
+    "category": "Policy",
+    "title": "撰写一段政策摘要",
+    "prompt": "Summarize the implications of a new EU digital regulation on startups."
+  },
+  {
+    "id": "cold-outreach",
+    "category": "Sales",
+    "title": "写一封冷启动销售邮件",
+    "prompt": "Craft a cold outreach email to pitch our SaaS product to e-commerce brands."
+  },
+  {
+    "id": "script-hook",
+    "category": "Video",
+    "title": "写一段视频开头脚本",
+    "prompt": "Write a strong hook for a YouTube video titled 'How AI is Changing Marketing Forever'."
+  },
+  {
+    "id": "project-intro",
+    "category": "Presentation",
+    "title": "项目介绍的简短开场白",
+    "prompt": "Write a short and compelling opening statement to introduce a project at a company all-hands meeting."
+  }
+]

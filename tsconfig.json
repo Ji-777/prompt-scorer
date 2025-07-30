@@ -12,15 +12,10 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "baseUrl": ".", // ✅ 添加：设置项目根路径
     "paths": {
-      "@/*": ["./src/*"]
+      "@utils/*": ["apps/web/utils/*"] // ✅ 添加：utils 路径别名
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
