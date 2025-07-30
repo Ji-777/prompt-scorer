@@ -1,9 +1,5 @@
 // apps/web/utils/supabase/supaWrite.ts
-// --------------------------------------------------
-// 将评分结果写入 history 表的辅助函数
-// --------------------------------------------------
-
-import { getServerClient } from './serverClient'
+import { createSupabaseServerClient } from './serverClient'
 
 type WriteHistoryParams = {
   prompt: string
@@ -12,16 +8,14 @@ type WriteHistoryParams = {
 }
 
 export async function writeHistory({ prompt, score, suggestions }: WriteHistoryParams) {
-  const supabase = getServerClient()
+  const supabase = await createSupabaseServerClient()
 
-  // 我们把 score + 建议打包成 result 字段写入（兼容你之前 history 表的结构）
   const resultText = `Score: ${score}\n${suggestions.join('\n')}`
 
   const { data, error } = await supabase.from('history').insert([
     {
       prompt,
-      result: resultText,          // 兼容你表里的 result 字段
-      // created_at 如果数据库默认 now()，就不用传。否则可传 new Date().toISOString()
+      result: resultText,
     },
   ])
 
